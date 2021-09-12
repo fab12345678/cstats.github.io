@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title style="display:none">cstats</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="addPopUp" class="addPopUp">
+      <div id="step0" onclick="cancel()">
+        <img src="pics/left_arrow.png" id="back_pic"></img>
+        <img src="pics/plus.png" id="plus-edit-pic"></img>
+        <h1 id="title">New Ascent</h1>
+          <img src="pics/mull.png" id="deletePic" onclick="delAscent()"></img>
+
+        </div>
+      <div id="step1">
+        <div class="content">
+          <div class="radios" onclick="changeType(this)" v="sport">
+            <img id="add_type_pic_sport" src="pics/sportclimbing.png">
+            <p>Sportroute</p>
+          </div>
+          <div class="radios" onclick="changeType(this)" v="boulder">
+            <img id="add_type_pic_boulder" src="pics/bouldering.png">
+            <p>Boulder</p>
+          </div>
+        </div>
+      </div><!--end of step1-->
+
+      <div id="step2">
+        <div class="content">
+          <input type="text" placeholder="Name" id="add_name">
+        </div>
+      </div><!--end of step2-->
+
+      <div id="step3">
+        <div class="content">
+          <div class="circle"></div>
+          <div class="gradeSlider" id="add_grade"><div onclick="changeGrade(this)"><p></p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p></p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p></p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>3a</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>3a+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>3b</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>3b+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>3c</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>3c+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>4a</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>4a+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>4b</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>4b+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>4c</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>4c+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>5a</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>5a+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>5b</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>5b+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>5c</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>5c+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>6a</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>6a+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>6b</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>6b+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>6c</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>6c+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>7a</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>7a+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>7b</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>7b+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>7c</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>7c+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>8a</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>8a+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>8b</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>8b+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>8c</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>8c+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>9a</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>9a+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>9b</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>9b+</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>9c</p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p>9c+</p></div onclick="changeGrade(this)">><div onclick="changeGrade(this)"><p></p></div onclick="changeGrade(this)"><div onclick="changeGrade(this)"><p></p></div onclick="changeGrade(this)"></div onclick="changeGrade(this)">
+        </div>
+      </div><!--end of step3-->
+
+      <div id="step4">
+        <div>
+          <div class="step4_radio">
+            <input type="text" onkeyup="step4_radio_change(this)" id="add_attempts" default="2">
+          </div>
+          <div class="step4_radio">
+            <div class="customradio" onclick="changeStyle(this)" v="redpoint"  style="border-color:#ea6161;">
+              <div class="inner_customradio" id="innerBox_rp" style="background:#ea6161;">
+              </div>
+            </div>
+            <p> redpoint </p>
+          </div>
+          <div class="step4_radio">
+            <div class="customradio" onclick="changeStyle(this)" v="flash" style="border-color:#e3ca71;">
+              <div class="inner_customradio" id="innerBox_f" style="background:#e3ca71; display:none;">
+              </div>
+            </div>
+            <p> flash </p>
+          </div>
+          <div class="step4_radio">
+            <div class="customradio" onclick="changeStyle(this)" v="onsight"  style="border-color:#3f4b60;">
+              <div class="inner_customradio" id="innerBox_os" style="background:#3f4b60; display:none;">
+              </div>
+            </div>
+            <p> onsight </p>
+          </div>
+        </div>
+      </div><!--end of step4-->
+
+
+      <div id="step5">
+        <div class="content">
+          <input placeholder="Date" type="text" id="add_date">
+        </div>
+      </div><!--end of step5-->
+
+      <div id="step6">
+        <div class="content">
+          <img src="pics/stars3.png" id="add_stars" onmousemove="step6_hoverStars(event,this)">
+        </div>
+      </div><!--end of step6-->
+
+      <div id="step7">
+        <div class="content">
+          <input type="text" placeholder="area and sector" id="add_area">
+        </div>
+      </div><!--end of step7-->
+
+      <div id="step8">
+        <div class="content">
+          <input type="text" placeholder="personal notes" id="add_notes">
+        </div>
+      </div><!--end of step8-->
+
+
+      <div class="placeholder"></div>
+    </div>
+    <div class="scrollcontainer" id="scrollcontainer">
+        <!-- Home Screen ------------------------>
+
+      <div class="profile">
+        <section id="loadinginfo">
+          <h2 class="newUserinfo">CSTATS</h2>
+          <h3 class="newUserinfo">Your Personal Climbing Statisics</h3>
+          <h3 class="newUserinfo">Totally yours, saved to your Google Drive</h3>
+          <div style="margin: auto; border-radius: 15px; width: 80%; height: 30px; background-color:#dfdfdf;">
+            <div id="progressBar" style="transition: width 1s;background-color:#3f4b60;width:0"></div>
+          </div>
+          <p class="newUserinfo" id="loadinfo">loading google scripts</p>
+          <button id="authorize_button">Get Started</button>
+        </section>
+        <section class="box1">
+          <div id="piccontainer">
+            <img class="profilepic" src="pics/profile.png">
+          </div>
+          <h2 id="yourname" n="" ><h2>
+        </section>
+
+        <section class="box2">
+          <ul class="profile_elemList_1">
+            <li>
+              <h1 class="number" id="bestsportroute"></h1>
+              <p class="description">Best Sport Route</p>
+            </li>
+            <li class="middle_item">
+              <h1 class="number" id="bestboulder"></h1>
+              <p class="description">Best Boulder</p>
+            </li>
+            <li>
+              <h1 class="number" id="totalascents"></h1>
+              <p class="description">Total Ascents</p>
+            </li>
+          </ul>
+        </section>
+
+
+
+        <section class="box4" onclick="switchToSportClimbing()">
+          <div class="profile_box_header"> <p>Sportclimbing</p> </div>
+          <canvas class="sportclimbingcanvas"></canvas>
+          <div class="elemList_container">
+            <ul class="profile_elemList_1">
+              <li>
+                <h1 class="number" id="avrGradeSport"></h1>
+                <p class="description">Average Grade</p>
+              </li>
+              <li class="middle_item">
+                <h1 class="number" id="bestOnsightSport"></h1>
+                <p class="description">Best Onsight</p>
+              </li>
+              <li>
+                <h1 class="number" id="bestFlashSport"></h1>
+                <p class="description">Best Flash</p>
+              </li>
+            </ul>
+          </div>
+          <div class="profile_totalNum">
+            <h1 class="number" id="totalAscentsSports"></h1>
+            <p class="description">Routes climbed</p>
+          </div>
+        </section>
+
+        <section class="box5" onclick="switchToBouldering()">
+          <div class="profile_box_header"> <p>Bouldering</p> </div>
+          <canvas class="boulderingcanvas"></canvas>
+
+          <div class="elemList_container">
+            <ul class="profile_elemList_1">
+              <li>
+                <h1 class="number" id="avrGradeBoulder"></h1>
+                <p class="description">Average Grade</p>
+              </li>
+              <li class="middle_item">
+                <h1 class="number" id="bestOnsightBoulder"></h1>
+                <p class="description">Best Onsight</p>
+              </li>
+              <li>
+                <h1 class="number" id="bestFlashBoulder"></h1>
+                <p class="description">Best Flash</p>
+              </li>
+            </ul>
+          </div>
+          <div class="profile_totalNum">
+            <h1 class="number" id="totalAscentsBoulder"></h1>
+            <p class="description">Boulders climbed</p>
+          </div>
+        </section>
+
+
+        <section class="box6" >
+          <div class="profile_box_header">
+            <p>Edit Profile</p>
+          </div>
+          <div class="elemList_container">
+            <ul class="profile_elemList_2">
+              <li onclick="document.getElementById('fileSelector').click();">
+                <input accept="application/JSON" type="file" id="fileSelector" name="files[]" single style="display:none;" />
+                  <button>Upload Data</button>
+              </li>
+              <li onclick="document.getElementById('picSelector').click();">
+                <input accept="image/jpeg, image/x-png" type="file" id="picSelector" name="files[]" single style="display:none;" />
+                <button id="pictureChangeButton">Change Picture</button>
+              </li>
+              <li onclick="openChangeNameBox(this)">
+                <button>Change Name</button>
+              </li>
+            </ul>
+          </div>
+
+        </section>
+        <section class="placeholder">
+          <!--weird scroll fix for chrome mobile-->
+        </section>
+      </div>
+
+      <div class="history">
+
+
+        <section id="history_header">
+
+          <h3 id="recentAscentsTitle"> Recent Ascents</h3>
+          <input id="searchfield" placeholder="Search Ascent" onfocus="opensearchfield({src:'lupe.png'})">
+          <input id="searchResultsNum" onfocus="document.getElementById('searchfield').focus()">
+          <img id="searchImg" onclick="opensearchfield(this)" src="pics/lupe.png">
+        </section>
+        <section id="feed_container">
+          <section class="feed">
+            <ul></ul>
+
+          </section>
+
+        </section>
+        <section class="placeholder">
+          <!--weird scroll fix for chrome mobile-->
+        </section>
+
+      </div>
+      <!-- Sport Climbing View View ------------------------->
+      <div class="sportclimbing">
+          <section class="top_box">
+           <section class="statistic">
+             <h2 style="padding-top:2%;">Sport Climbing Statistics</h2>
+              <canvas class="sportclimbingcanvas"></canvas>
+              <ul class="gradescale">
+                <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+              </ul>
+            </section>
+          </section>
+          <section class="feed">
+            <ul></ul>
+          </section>
+          <section class="placeholder">
+            <!--weird scroll fix for chrome mobile-->
+          </section>
+      </div>
+
+      <!-- Bouldering View ------------------------->
+      <div class="bouldering">
+        <section class="top_box">
+       <section class="statistic">
+         <h2 style="padding-top:2%;">Bouldering Statistics</h2>
+              <canvas class="boulderingcanvas"></canvas>
+              <ul class="gradescale">
+                <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+              </ul>
+            </section>
+           </section>
+
+          <section class="feed">
+            <ul></ul>
+          </section>
+          <section class="placeholder">
+            <!--weird scroll fix for chrome mobile-->
+          </section>
+      </div>
+
+    </div><!--  End of Scroll Container -->
+
+    <!-- NAVIGATION ------------------------->
+
+    <!-- weird line-wrap bug -->
+    <div id="navigation">
+        <div class="f4points">
+        <div>
+          <div onclick="switchtoProfile()"><img class="nav_pics" src="pics/profile_colored.png"></div><div onclick="switchToHistory()"><img class="nav_pics" src="pics/history.png"></div><div onclick="switchToSportClimbing()"><img class="nav_pics" src="pics/sportclimbing.png"></div><div onclick="switchToBouldering()"><img class="nav_pics" src="pics/bouldering.png"></div>
+      </div>
+        <div id="bottomline"></div>
+      </div>
+
+      <div onclick="openAdd()" id="newAscent">
+        <img class="nav_pics" id="pic" src="pics/plus.png">
+      </div>
+    </div>
+
+<!--  TEMPLATES ------------------------->
+
+<template id="template_route">
+  <section class="route" onclick="fold_unfold_route(this)">
+      <p id="id" style="display:none;"></p>
+      <p id="name"></p>
+      <p id="grade"></p>
+      <p id="date"></p>
+      <h4 id="grade"></h4>
+      <p id="attempts"></p>
+      <img id="stars" src="/pics/stars0.png"></img>
+      <p id="area"></p>
+      <p id="notes"></p>
+      <img id="edit_img"  src="pics/stift.png" onclick="editRoute(this)">
+    </section>
+</template>
+
+<template id="template_grade_p" style="display:none;">
+  <li class="route_grade_p">
+  <p id="grade"></p>
+  <p id="num"></p>
+  </li>
+</template>
+
+<template id="template_more_button" style="display:none">
+  <section class="more_button" onclick="showMoreRoutes(this)">
+
+    <p id="hiddenScreen" style="display:none;"></p>
+
+    <p id="hiddenNum" style="display:none;"></p>
+    <p id="text"> more </p>
+  </section>
+</template>
+
+
+<!-- SCRIPTS ------------------------->
+    <script src="statcanvas.js"></script>
+    <script src="route.js"></script>
+    <script src="pages.js"></script>
+    <script src="removewebhost.js"></script>
+
+    <script src="drive.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+
+  </body>
+</html>

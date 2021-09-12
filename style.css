@@ -1,0 +1,821 @@
+/*colors
+var grey="#928b8b";
+var blue="#3f4b60";
+var red="#ea6161";
+var green="#74c77e";
+var yellow="#e3ca71";
+
+dfdfdf grau
+ededed weiss
+*/
+
+
+*,html{
+	padding:0;
+	margin:0;
+	border-spacing:0;
+	border:0px;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+body{
+	padding:0;
+	margin:0;
+	outline:none;
+	overflow-y: hidden;
+}
+s
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+	body{
+		font-family:"Courier";
+		font-size:16px;
+	}
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+	body{
+		font-family:"Courier";
+		font-size:12px;
+	}
+}
+@media screen and (max-height: 500px) {
+
+/*
+@media only screen and (orientation:portrait){
+  body {
+	  height: 100vw;
+	  transform: rotate(90deg);
+	}
+}
+*/
+	#navigation{
+		display:none;
+
+	}
+	#addPopUp{
+		height: 100vh;
+	}
+}
+
+.scrollcontainer{
+	margin:0;
+	padding:0;
+	display:grid;
+	height:90vh;
+	grid-template-columns: repeat(4,100%);
+	scroll-snap-type: x mandatory;
+	overflow-x:scroll;
+	/*scroll-behavior: smooth;*/
+}
+
+.scrollcontainer div{
+	margin:0px;
+	height:100%;
+	width:100vw;
+	padding:0;
+	overflow-y: scroll;
+	scroll-snap-align:start;
+	scroll-snap-stop:always;
+}
+.scrollcontainer div::-webkit-scrollbar { display:none; }
+
+body ::-webkit-scrollbar { display:none; }
+
+
+
+/*-------------------------------Navigation-----------------------------------*/
+
+#navigation{
+	width:100%;
+	height:10%;
+	min-height:50px;
+	max-height:200px;
+	padding:0;
+	margin:0;
+	position:fixed;
+	bottom:0;
+	background:#dfdfdf;
+	z-index:8;
+	white-space: nowrap;
+}
+
+.f4points{
+	width:79%;
+	height: 100%;
+}
+
+.f4points div{
+	width:100%;
+	height:90%;
+}
+
+#bottomline{
+	height:10%;
+	width:20%;
+	position:absolute;
+	background-color:#3f4b60;
+}
+
+.f4points div div{
+	padding:0;
+	margin:0;
+	width:25%;
+	height:90%;
+	display:inline-block;
+	position: relative;
+}
+#navigation #newAscent{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-color: #3f4b60;
+	height: 100%;
+	width: 20%;
+	transition: background 1s, height .5s;
+}
+
+
+#navigation div img{
+	max-height: 60%;
+	max-width: 60%;
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.top_box{
+	margin:2% auto 3% auto;
+	width:95%;
+	height:32vh;
+	background-color:#ededed;
+	border-radius:10px;
+	text-align:center;
+	transition: height 600ms, opacity 600ms;
+	display:none;
+}
+
+.placeholder{
+	height: 10%;
+	width: 100%;
+}
+
+/*-------------------------------HISTORY-----------------------------------*/
+.history{
+	background-color:#928b8b;
+	position:relative;
+	overflow-y: scroll;
+}
+
+
+
+
+#history_header{
+	margin: auto;
+	margin-top: 2%;
+	position: relative;
+	border-radius: 10px 10px 0 0;
+	width:95%;
+	height: 50px;
+	background: #ededed;
+	border: 2px solid #928b8b;
+	border-width: 0 0 2px 0;
+}
+#history_header h3{
+	position: absolute;
+	top: 40%;
+	left: 10px;
+	vertical-align: center;
+
+}
+
+
+#feed_container{
+	width: 100%;
+}
+#recentAscentsTitle{
+	width:65%;
+	margin: auto 0 auto 3;
+	padding:0;
+	display:inline-flex;
+}
+
+#searchfield, #searchResultsNum{
+	position: relative;
+	left: 10px;
+	top: 10%;
+	display:none;/*or inline-flex;*/
+	width:55%;
+	height:80%;
+	padding:0 0 0 10px;
+	float: left;
+
+}
+#searchfield{
+	animation-name:animsearchBox;
+	animation-duration:500ms;
+	border-radius: 20px 0 0 20px;
+
+}
+
+#searchResultsNum{
+	background-color:#ffffff;
+	text-align: right;
+	width: 15%;
+	border-radius: 0 20px 20px 0;
+	padding:0;
+	padding-right: 10px;
+}
+
+@keyframes animsearchBox{
+  from{
+  width:0;
+  }
+  to{
+    width:55%;
+  }
+}
+
+#searchImg{
+	display:inline-flex;
+	height:70%;
+	margin: 2% 2% 0 0;
+	width:auto;
+	float:right;
+}
+/*------FEED----------------*/
+.feed{
+	position: relative;
+	margin:0 auto 0 auto;
+	padding:0 0 0 0;
+	width:95%;
+	background-color:#ededed;
+	border-radius:10px;
+}
+
+.feed h3{
+	margin:8px;
+	padding:8px;
+}
+
+.feed ul{
+	width:100%;
+	height:auto;
+	background-color:#ededed;
+	border-radius:10px;
+	}
+.feed ul::-webkit-scrollbar { width: 0 !important }
+
+/*---------------Route Template, li item of lists---------*/
+.route, .more_button{
+	position:relative;
+	height:50px;
+	padding:5px 0 0 0;
+	margin:0% 10px 0 10px;
+	border-style:solid;
+	border-color:#928b8b;
+	border-width: 0 0 1px 0;
+	transition: height 600ms;
+}
+
+.route #name, .more_button #text{
+	position:absolute;
+	left:2%;
+	top:20px;
+}
+
+.more_button #text{
+	position: absolute;
+	left:50%;
+	text-align: center;
+}
+
+.route #grade{
+	position:absolute;
+	margin:auto;
+	left:60%;
+	width:40px;
+	line-height:40px;
+	height:40px;
+	text-align:center;
+	vertical-align: middle;
+	border-radius:50%;
+	transition: left 500ms, width 500ms, height 500ms;
+
+}
+/*
+other position and size of grade
+.route #grade{
+	left: 2%;
+	top:25%;
+	width:70px;
+	line-height:70px;
+	height:70px;
+}
+*/
+.route #attempts{
+	display: none;
+	position: absolute;
+	left:2%;
+	top:65%;
+	width:70px;
+	text-align: center;
+}
+
+.route #notes{
+	display: none;
+
+	position: absolute;
+	right:2%;
+	left:130px;
+	top: 70px;
+	word-wrap:break-word;
+	overflow-y:auto;
+	text-align: left;
+
+}
+.route #area{
+	display: none;
+
+	position: absolute;
+	left: 130px;
+	top: 50px;
+}
+
+.route #stars{
+	display: none;
+	position: absolute;
+	top: 80%;
+	width:100px;
+}
+
+.route #date{
+	position: absolute;
+	right:2%;
+	top:20px;
+
+	}
+.route #edit_img{
+	position: absolute;
+	right: 2%;
+	bottom: 10%;
+	height: 30px;
+	display: none;
+}
+
+/*----------------grade Paragraph of lists-------------*/
+.route_grade_p{
+	height:30px;
+	display:flex;
+	padding:8px;
+	margin:1px;
+	border-radius: 10px;
+	top:0;
+	opacity:1;
+	background-color:#dfdfdf;
+	border-style:solid;
+	border-color:#928b8b;
+	border-width: 0 0 1px 0;
+	z-index: 2;
+}
+
+.route_grade_p p{
+	width:50%;
+	padding:3px;
+	text-align: left;
+	margin:auto;
+}
+
+/* ----------------canvas---------------*/
+.sportclimbingcanvas, .boulderingcanvas{
+	margin:1px auto 0 auto;
+	width:90%;
+	height:73%;
+}
+
+
+.gradescale{
+	width:90%;
+	height:5%;
+	display:inline-block;
+	white-space: nowrap;
+}
+
+
+.gradescale li{
+	width:12.5%;
+	display:inline-block;
+	margin:auto;
+	position:flex;
+	text-align:center;
+}
+
+
+/*-------------------------------BOULDERING-----------------------------------*/
+.bouldering{
+	background-color:#74c77e;
+		position:relative;
+
+}
+
+/*----------------------BOULDERING and SPORTCLIMBING ---------------------*/
+.statistic{
+	height:100%;
+	width:100%;
+	background-color:#ededed;
+	border-radius:10px;
+	text-align:center;
+
+}
+
+.statistic h3{
+	margin:6px;
+	padding:6px;
+}
+
+/*-------------------------------SPORT CLIMBING-----------------------------------*/
+.sportclimbing{
+	background-color:#ea6161;
+	position:relative;
+}
+
+/*-------------------------------PROFILE VIEW---------------------*/
+.profile{
+	background: #3f4b60;
+}
+.box1, .box2, .box3, .box4, .box5, .box6, #loadinginfo{
+	margin:2% auto 2% auto;
+	width:95%;
+	height:25%;
+	background-color:#ededed;
+	border-radius:10px;
+	position: relative;
+}
+
+#loadinginfo{
+	height: 50%;
+	transition: opacity 200ms, height 500ms, margin 500ms;
+}
+
+.box4, .box5{
+	height: 40%;
+}
+
+
+.box1 .profile_box_header, .box2 .profile_box_header,
+ .box3 .profile_box_header, .box4 .profile_box_header,
+  .box5 .profile_box_header, .box6 .profile_box_header {
+	position: relative;
+	width: 90%;
+	padding: 15px 0;
+	height: 20px;
+}
+
+.profile_box_header p{
+	font-size: 1.7em;
+	padding: 0 15px;
+}
+.newUserinfo{
+	padding-top:2%;
+	padding-bottom:2%;
+	padding-left:0;
+	padding-right: 0;
+	margin:auto;
+	text-align:center;
+}
+
+#authorize_button{
+	display:none;
+	padding:5%;
+	margin:auto;
+	border-radius:20px;
+}
+/* ------------  BOX 1 ------------*/
+
+.box1 #piccontainer{
+	/* container for profilepic2*/
+	position: absolute;
+	height: auto;
+	left: 10px;
+	top:10px;
+	bottom: 10px;
+	width: auto;
+	margin: auto;
+	z-index: 5;
+}
+
+.profilepic{
+	height:100%;
+	width:auto;
+	margin:auto;
+	border-radius:50%;
+}
+
+#yourname{
+	position: absolute;
+	left: 25vh;
+	top: 8vh;
+}
+
+
+/* ------------  BOX 2 ------------*/
+
+.profile_elemList_1, .profile_elemList_2{
+	margin:auto;
+	top: 0;
+	bottom: 0;
+
+	position:absolute;
+	height:60%;
+	display:flex;
+	width:100%;
+	list-style-type: none;
+}
+
+.profile_elemList_1 li, .profile_elemList_2 li{
+	width:33%;
+	margin:0;
+	position: relative;
+}
+
+.profile_elemList_1 li h1,.profile_totalNum h1{
+	margin-top:7%;
+	padding-top:10%;
+	font-size:3em;
+	text-align: center;
+
+}
+
+.profile_elemList_1 li h3, .profile_totalNum h3{
+	font-size:4em;
+	text-align: center;
+
+}
+.profile_elemList_1 li p,.profile_totalNum p{
+	text-align: center;
+}
+
+.middle_item{
+	border-left:2px solid #3f4b60 ;
+	border-right:2px solid #3f4b60 ;
+}
+
+/* ------------  BOX 4 & 5 ------------*/
+
+
+.box4 .sportclimbingcanvas, .box5 .boulderingcanvas{
+	width: 55%;
+	height: 40%;
+	margin-left: 10px;
+}
+
+.box4 .elemList_container, .box5 .elemList_container, .box6 .elemList_container{
+	width: 100%;
+	position: relative;
+	height: 40%;
+}
+.box4 .profile_totalNum, .box5 .profile_totalNum{
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	width: 30%;
+	height: 40%;
+}
+/* ------------  BOX 6 Edit profile Box ------------*/
+
+
+.profile_elemList_2 button{
+	width: 80%;
+	font-size: 1.5em;
+	height: 100%;
+	margin: auto;
+	margin-left: 10%;
+
+}
+
+#fileSelector{
+	width:100%;
+}
+
+/*-------------------------------ADD VIEW-----------------------------------*/
+.addPopUp{
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 90vh;
+	width: 100%;
+	z-index: 6;
+	background: #efefef;
+	display: none;
+	overflow-y: scroll;
+}
+
+#step1, #step2, #step3, #step4, #step5, #step6, #step7, #step8{
+	width: 90%;
+	margin: auto;
+	height: auto;
+}
+
+
+#step0{
+	margin: 20px auto;
+	width:70%;
+	border-color:#3f4b60;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	transition: border-color 1s;
+
+}
+
+#step0 h1{
+	display: inline;
+	padding-left: 10px;
+	height: 37px;
+	line-height: 37px;
+
+	}
+
+
+#back_pic{
+	display: none;
+	height: 40px;
+	width: 30px;
+
+	margin-right: 7vw;
+	margin-left:-40px;
+}
+
+#plus-edit-pic{
+	height: 30px;
+	width: 30px;
+	padding: 7px;
+	background: #3f4b60;
+	border-radius: 5px;
+	transition: background 1s;
+}
+#deletePic{
+	margin-right: -30px;
+	float:right;
+	height: 40px;
+	width: 40px;
+}
+.content{
+	width:100%;
+	display: inline-flex;
+	margin: 10px 0 10px 0;
+	position: relative;
+}
+.radios p{
+	width: 100%;
+	text-align: center;
+	height: auto;
+}
+.radios{
+	width: 15%;
+	margin: auto;
+}
+.radios img{
+	width: 100%;
+	opacity: .4;
+}
+
+#step2 input,#step3 input, #step5 input, #step7 input, #step8 input{
+	width: 95%;
+	height: 40px;
+	border-radius: 20px;
+	margin: auto;
+	padding:5px 0 5px 15px;
+}
+
+#step4 .step4_radio input{
+	width: 50px;
+	height: 40px;
+	border-radius: 20px;
+	padding:5px 0 5px 15px;
+	margin: 5% 20% ;
+}
+
+#step4 div{
+	margin-left: 5%;
+	margin-top: 2%;
+	display: inline-flex;
+	width: 90%;
+}
+#step4 div div{
+	margin: 0;
+	width: 25%;
+	height: 100px;
+	display: block;
+}
+#step4 div input{
+	width: 100%;
+}
+#step4 div p{
+	padding: 10% 0;
+	width: 100%;
+	height: 40px;
+	margin: auto;
+	text-align: center;
+}
+
+#step4 .customradio{
+	padding:0;
+	margin:auto;
+	width:40px;
+	height: 40px;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+}
+
+#step4 .inner_customradio{
+	width: 50%;
+	height: 50%;
+	margin:auto;
+	border-radius: 50%;
+	transform: translateY(50%);
+}
+
+#step6 img{
+	width: 70%;
+	height: auto;
+	margin: auto;
+}
+/*on add*/
+.buttons1{
+	height: 40px;
+	width: 70%;
+	position: absolute;
+	right: 5%;
+	bottom: 10%;
+	z-index: 4;
+}
+
+
+.gradeSlider{
+	position: relative;
+
+	width: 100%;
+	height: 80px;
+	display: grid;
+	grid-template-columns: repeat(47,20%) ;
+	scroll-snap-type: x mandatory;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	display:inline-grid;
+	scroll-behavior: smooth;
+}
+.gradeSlider div{
+	height: 100%;
+	text-decoration: none;
+	overflow-y: scroll;
+	scroll-snap-align:start;
+	scroll-snap-stop:always;
+}
+
+  .circle{
+	/* select cirlce of gradeslier*/
+	display: block;
+	height: 70px;
+	width: 70px;
+	position: absolute;
+
+	border-radius: 50%;
+	border: 2px solid #3f4b60;
+	margin-left: -37px;
+	left:50%;
+	top:4px;
+	transition: background 1s;
+}
+.gradeSlider div p{
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	min-height: 0;
+	line-height: 80px;
+	font-size: 1.5em;
+ 	text-align: center;
+	vertical-align: middle;
+}
+
+
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}

@@ -1,0 +1,39 @@
+﻿TODO
+
+Bessere Rundungsalgorithmus suchen
+
+add profilepic and name screens
+firefox font stylesheet
+Änderungen add screen
+- delete bei new entfernen
+- save symbol irgendwo
+- auf routengrade sollte man tippen können (nur wenn man nicht scrollt, vl schwierig)
+- <- knopf bei add route statt Cancel
+- style von history header ändern
+
+
+- profile settings. Name , pic
+
+IDEA
+
+friends????
+soll man kommentare sehen?
+muss man komplettes profil von jedem sehen können? 20 recent, best 50 sport, best 50 boulder
+sollen versuche öffentlich sein
+entwurf navigation fremdes Profil
+änderungen in der oberfläche/layout
+add friends button (google api kann das?)
+
+support different dateformats
+
+fix scroll auf dem handy _-WARUM?
+
+Milestones, mark important Ascents
+
+IDEA
+timeline??
+areas visited?
+percentage onsight, flash, redpoint? -> bei routen info wie viele anzeigen (zb. bei 8a flash 100% mit balkendiagramm irgendwie)
+avr stars?;
+
+ANIMATIONS!!!!!!!!!!!!!!!!!!!!
