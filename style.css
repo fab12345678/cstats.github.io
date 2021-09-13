@@ -501,6 +501,7 @@ other position and size of grade
 	padding:5%;
 	margin:auto;
 	border-radius:20px;
+    z-index: 99;
 }
 /* ------------  BOX 1 ------------*/
 
