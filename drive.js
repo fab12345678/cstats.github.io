@@ -740,6 +740,7 @@ function normalizeData(){
 function getAverage(routesArr){
   var sum=0;
   var sumG=0;
+  if(!routesArr || routesArr.length == 0) return "-";
   for(var i=0;i<routesArr.length;i++){
     var index=climbinggrades.indexOf(routesArr[i].grade);
     if(index>=0){

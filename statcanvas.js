@@ -5,7 +5,7 @@ var color_rp="#ea6161"; //rot
 */
 //calculate everything
 function showDiagram(routes,canvasName){
-	if(routes.length<5)return;
+	if(routes.length<4)return;
 var canvasArray=Array.from(document.getElementsByClassName(canvasName));
 //count the number of routes
 var gc=new Array(climbinggrades.length).fill(0);
