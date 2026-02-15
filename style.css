@@ -548,23 +548,21 @@ other position and size of grade
 
 .profile_elemList_1 li, .profile_elemList_2 li{
 	width:33%;
+	height: 100%;
 	margin:0;
 	position: relative;
 }
 
 .profile_elemList_1 li h1,.profile_totalNum h1{
-	padding-top:8%;
+	margin-top:8%;
 	font-size:3em;
 	text-align: center;
+	height: 58%;
 }
 
-.profile_elemList_1 li h3, .profile_totalNum h3{
-	font-size:4em;
-	text-align: center;
-
-}
 .profile_elemList_1 li p,.profile_totalNum p{
 	text-align: center;
+	height: 33%;
 }
 
 .middle_item{
