@@ -43,7 +43,7 @@ s
 @media screen and (max-width: 600px) {
 	body{
 		font-family:"Courier";
-		font-size:12px;
+		font-size:10px;
 	}
 }
 @media screen and (max-height: 500px) {
@@ -470,7 +470,8 @@ other position and size of grade
 }
 
 .box4, .box5{
-	height: 40%;
+	height: 50%;
+	min-height: 250px;
 }
 
 
@@ -480,7 +481,7 @@ other position and size of grade
 	position: relative;
 	width: 90%;
 	padding: 15px 0;
-	height: 20px;
+	height: 35px;
 }
 
 .profile_box_header p{
@@ -552,11 +553,9 @@ other position and size of grade
 }
 
 .profile_elemList_1 li h1,.profile_totalNum h1{
-	margin-top:7%;
-	padding-top:10%;
+	padding-top:8%;
 	font-size:3em;
 	text-align: center;
-
 }
 
 .profile_elemList_1 li h3, .profile_totalNum h3{
