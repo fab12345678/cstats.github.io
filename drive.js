@@ -222,7 +222,9 @@ function readName(id){
 
 //read the picture
 function readPic(id){
-  setPic("https://docs.google.com/uc?id="+id);
+  //setPic("https://docs.google.com/uc?id="+id); // old line
+  setPic("https://docs.google.com/thumbnail?id="+id); // old line
+
 }
 
 //for new users, set everything up
@@ -574,7 +576,14 @@ function getStyleInfo(style,attempts){
     if(attempts[attempts.length-1]=="1")ending="st go";
     else if(attempts[attempts.length-1]=="2")ending="nd go";
     else if(attempts[attempts.length-1]=="3")ending="rd go";
-    else ending="th go"
+    else if(attempts[attempts.length-1]=="4")ending="rd go";
+    else if(attempts[attempts.length-1]=="5")ending="rd go";
+    else if(attempts[attempts.length-1]=="6")ending="rd go";
+    else if(attempts[attempts.length-1]=="7")ending="rd go";
+    else if(attempts[attempts.length-1]=="8")ending="rd go";
+    else if(attempts[attempts.length-1]=="9")ending="rd go";
+    else if(attempts[attempts.length-1]=="0")ending="rd go";
+    else ending=""
     routeInfoP=attempts+ending;
   }else{
     routeInfoP=style;
